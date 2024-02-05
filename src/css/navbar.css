@@ -1,0 +1,54 @@
+  
+
+/* .background-image {
+    background-image: url('https://shorturl.at/hopZ6'); 
+    background-size:cover; 
+    background-position: center center; 
+    background-repeat: no-repeat;
+    min-height: 75px;
+    max-height: 100px; 
+    opacity: 60%;
+    
+  } */
+
+  .navbar-text {
+    color: rgb(255, 255, 255);
+    opacity: 100%;
+    padding: 10px;
+  }
+
+
+
+.background-image {
+    background-image: url('../imgs/bgimg4.png'); 
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    
+  }
+  .background-image-footer {
+    background-image: url('../imgs/bgimg.png'); 
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    
+  }
+
+  .fixed-footer {
+    position: absolute; 
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 65px;
+
+  }
+
+  .main-wrapper {
+    position: relative;
+    min-height: 100vh; 
+    margin: 0; 
+  }
+  
+  
+  
+  

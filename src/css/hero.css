@@ -1,0 +1,14 @@
+.background-image-left {
+    background-image: url('https://shorturl.at/cvwyM'); 
+    background-size:contain; 
+    background-position: left; 
+    background-repeat: no-repeat; 
+   
+    height: 50vh; 
+    color: white; 
+    opacity: 90%;
+  }
+
+  
+  
+
