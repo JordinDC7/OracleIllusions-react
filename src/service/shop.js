@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const rockShowService = {
-    endpoint: "https://localhost:7286/api"
+    endpoint: "https://oracleillusions.azurewebsites.net/api"
 }
 
 //const prodString =  "https://oracleillusions.azurewebsites.net/api";

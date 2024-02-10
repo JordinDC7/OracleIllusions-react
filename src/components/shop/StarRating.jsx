@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import StarRatings from "react-star-ratings";
 
-function RockRating({ initialRating, onRatingChange }) {
+function StarRating({ initialRating, onRatingChange }) {
   const [rating, setRating] = useState(initialRating || 0);
 
   const changeRating = (newRating) => {
@@ -9,6 +9,7 @@ function RockRating({ initialRating, onRatingChange }) {
     if (onRatingChange) {
       onRatingChange(newRating);
     }
+    //need a update call to db to add star rating
   };
 
   return (
@@ -23,4 +24,4 @@ function RockRating({ initialRating, onRatingChange }) {
   );
 }
 
-export default RockRating;
+export default StarRating;
