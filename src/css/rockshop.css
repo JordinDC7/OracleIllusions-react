@@ -1,24 +1,31 @@
-.top-section {
+/* .top-section {
     background: linear-gradient(to right, #6933ff, #24001a); 
+    width:max-content;
     
   }
  
   .middle-section {
     background: linear-gradient(to right, #24001a, #000000); 
+    width:max-content;
   }
   
  
   .bottom-section {
     background: linear-gradient(to right, #000000, #6933ff);
-  }
+    width:max-content;
+  } */
 
   .fixed-footer {
-    position: absolute;
+    position: sticky;
     bottom: 0;
     left: 0;
     right: 0;
+    
     max-height: 65px;
+    z-index: 9999;
   }
+
+  
 
   /* .rock-shop-head {
     text-align: left;
@@ -34,13 +41,15 @@
     color: #6933ff;
   }
   .top-section {
+    /* margin-top: 10%; */
     background: linear-gradient(to right, #6933ff, #24001a); 
+    /* width:max-content; */
     height: 33%; 
   }
  
   .middle-section {
     background: linear-gradient(to right, #24001a, #000000); 
-    width: 100%;
+  
     height: 33%; 
   }
   
@@ -52,4 +61,8 @@
 
   .landing-text {
     color: rgb(192, 192, 192)
+  }
+
+  .min-vh-100 {
+    min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
   }
