@@ -10,15 +10,15 @@ const routes = [
       name: "Landing",
       exact: true,
       element: Landing,
-      roles: [],
-      isAnonymous: true,
+      roles: ["Admin"],
+      isAnonymous: false,
     }, {
       path: "/rockshop",
       name: "RockShop",
       exact: true,
       element: RockShop,
-      roles: [],
-      isAnonymous: true,
+      roles: ["Admin"],
+      isAnonymous: false,
     },
 ];
 
