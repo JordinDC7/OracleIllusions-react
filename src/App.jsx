@@ -1,29 +1,16 @@
-import React, { Suspense, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import allRoutes from "./routes/publicRoutes";
+import React, { Suspense, useState, useEffect } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import InnerApp from "./InnerApp";
+
 import "./App.css";
 import "./css/tailwind.css";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
-function App() {
+const App = () => {
   return (
     <Router>
-      <ToastContainer></ToastContainer>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
-          {allRoutes.map((route, index) => (
-            <Route
-              key={index}
-              path={route.path}
-              element={<route.element />}
-              exact={route.exact}
-            />
-          ))}
-        </Routes>
-      </Suspense>
+      <InnerApp />
     </Router>
   );
-}
+};
 
 export default App;

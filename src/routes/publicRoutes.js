@@ -2,24 +2,27 @@ import { lazy } from "react"
 import Error404Page from "../components/response/Error404Page.jsx"
 
 const Landing = lazy(() => import("../components/landing/RockShowHome.jsx"))
-const RockShop = lazy(() => import("../components/shop/RockShop.jsx"))
+// const LogIn = lazy(() => import("../components/users/LogIn.jsx"))
+// const RockShop = lazy(() => import("../components/shop/RockShop.jsx"))
 
 const routes = [
-    {
-      path: "/",
-      name: "Landing",
-      exact: true,
-      element: Landing,
-      roles: ["Admin"],
-      isAnonymous: false,
-    }, {
-      path: "/rockshop",
-      name: "RockShop",
-      exact: true,
-      element: RockShop,
-      roles: ["Admin"],
-      isAnonymous: false,
-    },
+  {
+    path: "/",
+    name: "Landing",
+    exact: true,
+    element: Landing,
+    roles: ["User"],
+    isAnonymous: false,
+  },
+  
+  // {
+  //   path: "/login",
+  //   name: "Log-In",
+  //   exact: true,
+  //   element: LogIn,
+  //   roles: [],
+  //   isAnonymous: true,
+  // },
 ];
 
 
