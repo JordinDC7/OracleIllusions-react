@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../../css/rockshopcard.css";
 import StarRating from "./StarRating";
 import { toast } from "react-toastify";
+import "../../css/RockShowHome.css";
 
 function MapRocks({ rockState }) {
   const displayCount = 8;
@@ -81,8 +82,7 @@ function MapRocks({ rockState }) {
                     >
                       {rock.isInStock ? "Buy item now" : "Unavailable!"}
                     </button>
-                    {/* px-6 h-13 */}
-                    {/* px-2 h-10 */}
+
                     {rock.isInStock ? (
                       <button
                         className={`${

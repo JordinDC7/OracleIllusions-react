@@ -15,15 +15,7 @@
     width:max-content;
   } */
 
-  .fixed-footer {
-    position: sticky;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    
-    max-height: 65px;
-    z-index: 9999;
-  }
+  
 
   
 
@@ -63,6 +55,6 @@
     color: rgb(192, 192, 192)
   }
 
-  .min-vh-100 {
+  /* .min-vh-100 {
     min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
-  }
+  } */

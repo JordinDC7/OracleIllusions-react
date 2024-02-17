@@ -1,21 +1,3 @@
-  
-
-/* .background-image {
-    background-image: url('https://shorturl.at/hopZ6'); 
-    background-size:cover; 
-    background-position: center center; 
-    background-repeat: no-repeat;
-    min-height: 75px;
-    max-height: 100px; 
-    opacity: 60%;
-    
-  } */
-
-  .navbar-text {
-    color: rgb(255, 255, 255);
-    opacity: 100%;
-    padding: 10px;
-  }
 
 
 
@@ -28,27 +10,62 @@
   }
   .background-image-footer {
     background-image: url('../imgs/bgimg.png'); 
-    background-size: cover;
+    background-size:auto;
     width: 100%
   }
 
-  .fixed-footer {
-    position: sticky; 
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 65px;
 
-  }
+  /* Custom styles for specific devices can go here */
 
-  .main-wrapper {
-    position: relative;
-    min-height: 100vh; 
-    margin: 0; 
-  }
+/* iPhone XR */
+@media only screen 
+and (device-width : 414px) 
+and (device-height : 896px) 
+and (-webkit-device-pixel-ratio : 2) { 
+  /* Styles */
+}
+
+/* iPhone 12 Pro */
+@media only screen 
+and (device-width : 390px) 
+and (device-height : 844px) 
+and (-webkit-device-pixel-ratio : 3) { 
+  /* Styles */
+}
+
+/* iPhone 14 Pro Max */
+@media only screen 
+and (device-width : 430px) 
+and (device-height : 932px) 
+and (-webkit-device-pixel-ratio : 3) { 
+  /* Styles */
+}
+
+/* Pixel 7 */
+@media only screen 
+and (device-width : 393px) 
+and (device-height : 851px) 
+and (-webkit-device-pixel-ratio : 3) { 
+  /* Styles */
+}
+
+/* Samsung Galaxy S8 */
+@media only screen 
+and (device-width : 360px) 
+and (device-height : 740px) 
+and (-webkit-device-pixel-ratio : 4) { 
+  /* Styles */
+}
+
+/* Samsung Galaxy S20 */
+@media only screen 
+and (device-width : 360px) 
+and (device-height : 800px) 
+and (-webkit-device-pixel-ratio : 3) { 
+  /* Styles */
+}
+
   
-  .custom-container {
-    max-width: 100%; /* Adjust based on your layout */
-  }
-  
+
+ 
   

@@ -1,0 +1,38 @@
+.top-section {
+  background: linear-gradient(to right, #6933ff, #24001a); 
+  width: 100%;
+  height: 100vh;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+form {
+  max-width: 500px; /* Use max-width for scalability */
+  width: 90%; /* Make width responsive */
+  height: auto; /* Allow height to adjust based on content */
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px white;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  padding: 20px; /* Add some padding inside the form */
+}
+
+#root > div > div.min-vh-100.align-items-center.justify-content-center.text-center > div > div > form > div.mb-4 > label {
+  margin-top: 20px;
+}
+
+/* Responsive adjustments for the form on specific devices */
+@media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2),
+       only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3),
+       only screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3),
+       only screen and (device-width: 393px) and (device-height: 851px) and (-webkit-device-pixel-ratio: 3),
+       only screen and (device-width: 360px) and (device-height: 740px) and (-webkit-device-pixel-ratio: 4),
+       only screen and (device-width: 360px) and (device-height: 800px) and (-webkit-device-pixel-ratio: 3),
+       only screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) {
+  form {
+    max-width: 90%; /* Allow the form to take up to 90% of screen width */
+    margin: 0px; /* Add some margin to avoid touching the screen edges */
+  }
+}

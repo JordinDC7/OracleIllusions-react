@@ -1,45 +1,86 @@
-import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "../../css/navbar.css";
-import "bootstrap/dist/js/bootstrap.bundle.min";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "../../css/RockShowHome.css";
 
-function NavBar() {
+function NavBar({ currentUser }) {
+  const { email, role, id, firstName, lastName, mi, avatarUrl, isLoggedIn } =
+    currentUser;
+  const navigate = useNavigate();
+  const [isNavExpanded, setIsNavExpanded] = useState(false);
+  const gotoLoginPage = () => {
+    navigate("/login");
+  };
+  console.log({
+    email,
+    role,
+    id,
+    firstName,
+    lastName,
+    mi,
+    avatarUrl,
+    isLoggedIn,
+  });
   return (
-    <div className="container">
-      <nav className="navbar navbar-expand-lg navbar-dark fixed-top background-image">
-        <div></div>
-        <a className="navbar-brand navbar-text " href="/">
-          Rock Show
+    <div className="background-image">
+      <nav className="container mx-auto px-4 py-6 flex justify-between items-center">
+        <a className="text-white text-2xl font-bold" href="/">
+          Oracle Illusions
         </a>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarResponsive"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarResponsive">
-          <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <a className="nav-link navbar-text" href="#about">
+        <div className="flex items-center">
+          <ul
+            className={`lg:flex lg:items-center lg:w-auto w-full ${
+              isNavExpanded ? "block" : "hidden"
+            } space-y-2 lg:space-y-0 lg:space-x-4`}
+          >
+            <li>
+              <a className="inline-block py-2 px-4 text-white" href="#about">
                 About Us
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link navbar-text" href="#features">
+            <li>
+              <a className="inline-block py-2 px-4 text-white" href="#features">
                 Features
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link navbar-text" href="#contact">
+            <li>
+              <a className="inline-block py-2 px-4 text-white" href="#contact">
                 Contact Us
               </a>
             </li>
+            <li>
+              {!currentUser.isLoggedIn && (
+                <button
+                  onClick={gotoLoginPage}
+                  className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300"
+                >
+                  Login
+                </button>
+              )}
+            </li>
+            <li>
+              {!currentUser.isLoggedIn && (
+                <button className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                  Register
+                </button>
+              )}
+            </li>
           </ul>
+          <button
+            className="block lg:hidden focus:outline-none text-white ml-4 bg-gray-700 rounded-full p-2"
+            onClick={() => setIsNavExpanded(!isNavExpanded)}
+          >
+            <svg className="h-6 w-6 fill-current" viewBox="0 0 24 24">
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M4 5h16a1 1 0 010 2H4a1 1 0 110-2zm0 7h16a1 1 0 010 2H4a1 1 0 110-2zm0 7h16a1 1 0 010 2H4a1 1 0 110-2z"
+              ></path>
+            </svg>
+          </button>
         </div>
       </nav>
     </div>
   );
 }
+
 export default NavBar;

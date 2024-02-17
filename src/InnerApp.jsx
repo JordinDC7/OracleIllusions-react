@@ -18,7 +18,7 @@ import {
   publicProtectedFlattenRoutes,
 } from "./routes/index";
 
-const InnerApp = () => {
+const InnerApp = ({ setCurrentUser, currentUser }) => {
   const DEFAULT_USER = {
     email: "",
     role: "",
@@ -30,31 +30,21 @@ const InnerApp = () => {
     isLoggedIn: false,
   };
 
-  let [currentUser, setCurrentUser] = useState(() => {
-    return DEFAULT_USER;
-  });
-
+  // let [currentUser, setCurrentUser] = useState(() => {
+  //   return DEFAULT_USER;
+  // });
+  let isLoggedIn = currentUser.isLoggedIn;
   const location = useLocation();
   const pathname = location.pathname;
   const navigate = useNavigate();
 
   useEffect(() => {
-    let payload = {
-      email: "jordincamp23@outlook.com",
-      password: "Password1!",
-    };
-    if (currentUser.isLoggedIn === false) {
-      login(payload).then(onLoginSuccess).catch(onLoginError);
-    }
+    // if (currentUser.isLoggedIn === false) {
+    //   login(payload).then(onLoginSuccess).catch(onLoginError);
+    // }
     getCurrentUser().then(onGetUserSuccess).catch(onGetUserFailed);
   }, [pathname]);
-  const onLoginSuccess = (response) => {
-    console.log("Login response", response);
-    // setIsLoggedIn(true);
-  };
-  const onLoginError = (error) => {
-    console.error("LoginError", error);
-  };
+
   const onGetUserSuccess = (response) => {
     const gotUser = response.data.item;
     console.log("CurrentUser Logged In:", gotUser);
@@ -62,12 +52,11 @@ const InnerApp = () => {
     if (currentUser === gotUser) {
       return;
     } else {
-      setCurrentUser((prevState) => {
-        let newUser = { ...prevState };
-        newUser = gotUser;
-        newUser.isLoggedIn = true;
-        return newUser;
-      });
+      setCurrentUser((prevState) => ({
+        ...prevState,
+        ...gotUser,
+        isLoggedIn: true,
+      }));
 
       if (!gotUser.avatarUrl && gotUser.firstName) {
         navigate("/user/profilewizard");
@@ -136,17 +125,22 @@ const InnerApp = () => {
     }
   }, [pathname, currentPath]);
 
-  const checkRoleAccess = (route) => {
-    if (!route.roles || !currentUser) return true;
-    return route.roles.some((role) => currentUser.role.includes(role));
+  const hasAuthorization = (route, isLoggedIn) => {
+    if (!route.roles) {
+      return false;
+    } else {
+      return route.roles.some((role) => currentUser.role.includes(role));
+    }
   };
 
-  const renderRoutes = (routes) => {
+  const renderRoutes = (routes, isLoggedIn) => {
     return routes.map((route, index) => {
-      return checkRoleAccess(route) ? (
+      return hasAuthorization(route, isLoggedIn) ? (
+        <Route key={index} path={route.path} element={<route.element />} />
+      ) : route.isAnonymous ? (
         <Route key={index} path={route.path} element={<route.element />} />
       ) : (
-        <Route key={index} path="*" element={<Navigate to="/unauthorized" />} />
+        <Route key={index} path="*" element={<Navigate to="/login" />} />
       );
     });
   };
@@ -154,12 +148,8 @@ const InnerApp = () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Routes>
-        {currentUser.role.length > 0 && (
-          <>
-            {currentPath.isPublic && renderRoutes(publicRoutes, false)}
-            {currentPath.isSecured && renderRoutes(securedRoutes, true)}
-          </>
-        )}
+        {renderRoutes(publicRoutes, isLoggedIn)}
+        {renderRoutes(securedRoutes, isLoggedIn)}
       </Routes>
     </Suspense>
   );

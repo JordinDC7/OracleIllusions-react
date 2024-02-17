@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const usersService = {
-  endpoint: "https://oracleillusions.azurewebsites.net/api/users",
+  endpoint: "https://localhost:7286/api/users",
 };
 
 const login = (payload) => {
